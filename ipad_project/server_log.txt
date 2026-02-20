@@ -1,0 +1,5 @@
+Server running on port 5000
+Connected to MySQL database: ipad_db
+Table "users" is ready
+Table "visitors" is ready
+Table "events" is ready

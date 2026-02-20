@@ -1,0 +1,44 @@
+Connected to ipad_db
+
+=== Before Backfill: Recent Visitors ===
+┌─────────┬────┬─────────────────┬──────────────┬──────────┬──────────┐
+│ (index) │ id │ name            │ event        │ event_id │ assigned │
+├─────────┼────┼─────────────────┼──────────────┼──────────┼──────────┤
+│ 0       │ 4  │ 'Test visitor'  │ 'test event' │ null     │ null     │
+│ 1       │ 3  │ 'Abdul Palwa'   │ 'CoCoFarm'   │ null     │ null     │
+│ 2       │ 2  │ 'Mark Salongga' │ 'MangoCon'   │ null     │ null     │
+│ 3       │ 1  │ 'James Ivan '   │ 'AgriLink'   │ null     │ null     │
+└─────────┴────┴─────────────────┴──────────────┴──────────┴──────────┘
+
+Running Backfill Migration...
+
+=== Backfill result ===
+{
+  "fieldCount": 0,
+  "affectedRows": 4,
+  "insertId": 0,
+  "info": "Rows matched: 4  Changed: 4  Warnings: 0",
+  "serverStatus": 34,
+  "warningStatus": 0,
+  "changedRows": 4
+}
+
+=== After Backfill: Visitors with Event IDs ===
+┌─────────┬────┬─────────────────┬──────────────┬──────────┬──────────┐
+│ (index) │ id │ name            │ event        │ event_id │ assigned │
+├─────────┼────┼─────────────────┼──────────────┼──────────┼──────────┤
+│ 0       │ 4  │ 'Test visitor'  │ 'test event' │ 5        │ null     │
+│ 1       │ 3  │ 'Abdul Palwa'   │ 'CoCoFarm'   │ 4        │ null     │
+│ 2       │ 2  │ 'Mark Salongga' │ 'MangoCon'   │ 3        │ null     │
+│ 3       │ 1  │ 'James Ivan '   │ 'AgriLink'   │ 1        │ null     │
+└─────────┴────┴─────────────────┴──────────────┴──────────┴──────────┘
+
+=== Integrated View (Full Logic) ===
+┌─────────┬────┬─────────────────┬──────────────┬──────────────────┐
+│ (index) │ id │ name            │ event        │ assigned_display │
+├─────────┼────┼─────────────────┼──────────────┼──────────────────┤
+│ 0       │ 4  │ 'Test visitor'  │ 'test event' │ 'Test'           │
+│ 1       │ 3  │ 'Abdul Palwa'   │ 'CoCoFarm'   │ 'Cybel'          │
+│ 2       │ 2  │ 'Mark Salongga' │ 'MangoCon'   │ 'James'          │
+│ 3       │ 1  │ 'James Ivan '   │ 'AgriLink'   │ 'Jhon'           │
+└─────────┴────┴─────────────────┴──────────────┴──────────────────┘

@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Brandsync - Home</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&family=Outfit:wght@300;600;900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="ios-device">
+        <div class="app-container">
+            <!-- HOME SCREEN -->
+            <section id="screen-home" class="screen active">
+                <div class="home-content">
+                    <div class="logo-area">
+                        <div class="maroon-bar-top"></div>
+                        <h1 class="brand-title">BRANDSYNC</h1>
+                        <div class="badge-container">
+                            <span class="badge">DATA COLLECTION</span>
+                        </div>
+                    </div>
+
+                    <p class="main-description">
+                        Designed to streamline lead generation, this app digitizes the entire data-capture process,
+                        allowing teams to collect information faster, minimize manual work, and improve overall
+                        efficiency.
+                    </p>
+
+                    <div class="action-section">
+                        <button class="btn btn-create-new" onclick="showScreen('screen-setup')">CREATE NEW</button>
+
+                        <div class="open-event-row">
+                            <div class="dropdown-wrapper">
+                                <select class="event-dropdown">
+                                    <option value="" disabled selected>OPEN EVENT</option>
+                                    <option value="mangocon">MangoCon</option>
+                                    <option value="coconutshell">CoconutShell</option>
+                                </select>
+                                <div class="dropdown-arrow">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#851C1C"
+                                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <polyline points="6 9 12 15 18 9"></polyline>
+                                    </svg>
+                                </div>
+                            </div>
+                            <button class="btn btn-open">OPEN</button>
+                        </div>
+
+                        <div class="divider-area">
+                            <div class="line"></div>
+                            <span class="or-text">OR</span>
+                        </div>
+
+                        <button class="btn btn-admin-access" onclick="showScreen('screen-admin-login')">ADMIN
+                            ACCESS</button>
+                    </div>
+
+                    <p class="admin-description">
+                        Admin Access provides centralized control where all event-generated leads are stored, reviewed,
+                        and managed. Use this section to view, track, and organize leads from every event in one secure
+                        location.
+                    </p>
+
+                    <footer class="home-footer">
+                        Powered by: Marketing & CSE Department © 2026 BrandSync
+                    </footer>
+                </div>
+            </section>
+
+            <!-- SETUP/WELCOME SCREEN (MODAL) -->
+            <section id="screen-setup" class="screen">
+                <div class="modal-overlay">
+                    <div class="modal-box setup-modal">
+                        <button class="close-btn" onclick="showScreen('screen-home')">×</button>
+
+                        <div class="setup-header">
+                            <h2 class="welcome-title">WELCOME</h2>
+                            <p class="welcome-description">
+                                Lorem ipsum dolor sit amet consectetur adipiscing elit. Sit amet consectetur adipiscing
+                                elit quisque faucibus es sapien vitae pellentesque.
+                            </p>
+                        </div>
+
+                        <div class="setup-form-container">
+                            <div class="form-scroll-area">
+                                <!-- Salesperson -->
+                                <div class="input-group">
+                                    <span class="required-star">*</span>
+                                    <input type="text" placeholder="NAME OF SALESPERSON WHO CONDUCTED THIS:"
+                                        class="setup-input">
+                                </div>
+
+                                <!-- Event Title -->
+                                <div class="input-group">
+                                    <span class="required-star">*</span>
+                                    <input type="text" placeholder="EVENT NAME / TITLE OF THE EVENT:"
+                                        class="setup-input">
+                                </div>
+
+                                <!-- Address -->
+                                <div class="input-group">
+                                    <span class="required-star">*</span>
+                                    <input type="text" placeholder="ADRESS OF THE EVENT:" class="setup-input">
+                                </div>
+
+                                <!-- Company Section -->
+                                <div class="company-section">
+                                    <div class="company-row-main">
+                                        <div class="input-group company-dropdown-group">
+                                            <span class="required-star">*</span>
+                                            <div class="custom-dropdown" onclick="toggleDropdown('company-list')">
+                                                <span id="selected-company">COMPANY:</span>
+                                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none"
+                                                    stroke="#851C1C" stroke-width="2" stroke-linecap="round"
+                                                    stroke-linejoin="round">
+                                                    <polyline points="6 9 12 15 18 9"></polyline>
+                                                </svg>
+                                            </div>
+                                            <div id="company-list" class="dropdown-list">
+                                                <div class="dropdown-item"
+                                                    onclick="selectCompany('SF Group of Companies, Inc.')">SF Group of
+                                                    Companies, Inc.</div>
+                                                <div class="dropdown-item"
+                                                    onclick="selectCompany('Agridom Solutions Corp.')">Agridom Solutions
+                                                    Corp.</div>
+                                                <div class="dropdown-item"
+                                                    onclick="selectCompany('Aerobot Distribution Inc.')">Aerobot
+                                                    Distribution Inc.</div>
+                                                <div class="dropdown-item"
+                                                    onclick="selectCompany('DJAS Servitrade Corporation')">DJAS
+                                                    Servitrade Corporation</div>
+                                                <div class="dropdown-item" onclick="selectCompany('Agridom Academy')">
+                                                    Agridom Academy</div>
+                                                <div class="dropdown-item"
+                                                    onclick="selectCompany('Sunfood Marketing Inc.')">Sunfood Marketing
+                                                    Inc.</div>
+                                                <div class="dropdown-item"
+                                                    onclick="selectCompany('Ardent Services Corporation')">Ardent
+                                                    Services Corporation</div>
+                                            </div>
+                                        </div>
+
+                                        <div class="multi-company-toggle">
+                                            <span class="toggle-label">MULTI-COMPANY?</span>
+                                            <input type="checkbox" id="multi-company-checkbox"
+                                                onchange="toggleMultiCompany()">
+                                            <span class="help-icon">?</span>
+                                        </div>
+                                    </div>
+
+                                    <div id="additional-companies" class="additional-fields-container hidden">
+                                        <!-- Dynamic company fields will go here -->
+                                        <div class="counter-control">
+                                            <button class="counter-btn"
+                                                onclick="updateCounter('company-count', -1)">-</button>
+                                            <input type="number" id="company-count" value="1" min="1"
+                                                onchange="generateCompanyFields()">
+                                            <button class="counter-btn"
+                                                onclick="updateCounter('company-count', 1)">+</button>
+                                        </div>
+                                        <div id="company-fields-list"></div>
+                                    </div>
+                                </div>
+
+                                <!-- Date & Time Section -->
+                                <div id="date-time-container">
+                                    <div class="date-time-row">
+                                        <div class="input-group date-group">
+                                            <span class="required-star">*</span>
+                                            <input type="text" placeholder="DATE OF THE EVENT:"
+                                                class="setup-input date-picker-input" readonly
+                                                onclick="openDatePicker(this)">
+                                        </div>
+                                        <div class="input-group time-group">
+                                            <span class="required-star">*</span>
+                                            <div class="time-inputs">
+                                                <input type="text" placeholder="TIME STARTED" class="time-input"
+                                                    readonly onclick="openTimePicker(this)">
+                                                <div class="time-divider"></div>
+                                                <input type="text" placeholder="TIME ENDED" class="time-input" readonly
+                                                    onclick="openTimePicker(this)">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="long-event-toggle">
+                                    <span class="toggle-label">LONG EVENT?</span>
+                                    <input type="checkbox" id="long-event-checkbox" onchange="toggleLongEvent()">
+                                    <span class="help-icon">?</span>
+                                </div>
+
+                                <div id="long-event-controls" class="additional-fields-container hidden">
+                                    <div class="counter-control">
+                                        <button class="counter-btn" onclick="updateCounter('date-count', -1)">-</button>
+                                        <input type="number" id="date-count" value="1" min="1"
+                                            onchange="generateDateFields()">
+                                        <button class="counter-btn" onclick="updateCounter('date-count', 1)">+</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Custom Pickers -->
+                        <div id="calendar-picker" class="calendar-picker-modal hidden">
+                            <div class="calendar-header">
+                                <button class="cal-nav-btn" onclick="changeMonth(-1)">&lt;</button>
+                                <span id="current-month-year">JANUARY 2026</span>
+                                <button class="cal-nav-btn" onclick="changeMonth(1)">&gt;</button>
+                            </div>
+                            <div class="calendar-weekdays">
+                                <span>SUN</span><span>MON</span><span>TUE</span><span>WED</span><span>THU</span><span>FRI</span><span>SAT</span>
+                            </div>
+                            <div id="calendar-days" class="calendar-days-grid">
+                                <!-- Days will be generated by JS -->
+                            </div>
+                        </div>
+
+                        <div id="time-picker" class="time-picker-modal hidden">
+                            <div class="time-picker-title">SELECT TIME</div>
+                            <div id="time-list" class="time-picker-list">
+                                <!-- Times will be generated by JS -->
+                            </div>
+                        </div>
+
+                        <div class="setup-footer">
+                            <button class="btn btn-start" onclick="startEvent()">START</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- WINDOW SHOPPER: LANDING / INTRO -->
+            <section id="screen-ws-landing" class="screen">
+                <div class="ws-container">
+                    <!-- Top Brown Section -->
+                    <div class="ws-top-section">
+                        <div class="ws-day-dropdown">
+                            <span>DAY 1</span>
+                            <svg width="10" height="10" viewBox="0 0 24 24" fill="currentColor" stroke="none">
+                                <path d="M7 10l5 5 5-5z" />
+                            </svg>
+                        </div>
+
+                        <div class="ws-intro-text">
+                            <h2 class="ws-hi">HI I’M</h2>
+                            <h1 id="ws-salesperson-name" class="ws-name">JEK</h1>
+                        </div>
+                    </div>
+
+                    <!-- Yellow Badge Area -->
+                    <div class="ws-role-badge">
+                        <div class="ws-role-text">
+                            AGRICULTURE<br>SPECIALIST
+                        </div>
+                    </div>
+
+                    <!-- Bottom White Section -->
+                    <div class="ws-bottom-section">
+                        <div class="ws-input-area">
+                            <label class="ws-label"><span class="required-star-small">*</span> What's your name?</label>
+                            <input type="text" id="visitor-name" placeholder="ex. Juan Dela Cruz" class="ws-input">
+                            <p class="ws-helper-text">Kindly verify that the information entered is correct.</p>
+                        </div>
+
+                        <button class="btn btn-lets-go" onclick="nextWsScreen('screen-ws-contact')">LET'S GO!</button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- WINDOW SHOPPER: CONTACT (Keypad) -->
+            <section id="screen-ws-contact" class="screen">
+                <div class="ws-container">
+                    <div class="ws-yellow-header">
+                        <div class="ws-day-dropdown white-text">
+                            <span>DAY 1</span>
+                            <svg width="10" height="10" viewBox="0 0 24 24" fill="currentColor" stroke="none">
+                                <path d="M7 10l5 5 5-5z" />
+                            </svg>
+                        </div>
+                        <h2 class="ws-yellow-title">CAN WE<br>CONTACT YOU?</h2>
+                        <p class="ws-yellow-subtitle">Kindly verify that the information entered is correct.</p>
+
+                        <div class="ws-phone-display">
+                            <span id="ws-phone-input" class="placeholder">0912 345 6789</span>
+                        </div>
+                    </div>
+
+                    <div class="ws-white-body">
+                        <!-- Keypad -->
+                        <div class="ws-keypad">
+                            <button class="keypad-btn" onclick="keypadPress('1')">1</button>
+                            <button class="keypad-btn" onclick="keypadPress('2')">2</button>
+                            <button class="keypad-btn" onclick="keypadPress('3')">3</button>
+                            <button class="keypad-btn" onclick="keypadPress('4')">4</button>
+                            <button class="keypad-btn" onclick="keypadPress('5')">5</button>
+                            <button class="keypad-btn" onclick="keypadPress('6')">6</button>
+                            <button class="keypad-btn" onclick="keypadPress('7')">7</button>
+                            <button class="keypad-btn" onclick="keypadPress('8')">8</button>
+                            <button class="keypad-btn" onclick="keypadPress('9')">9</button>
+                            <button class="keypad-btn" onclick="keypadPress('*')">*</button>
+                            <button class="keypad-btn" onclick="keypadPress('0')">0</button>
+                            <button class="keypad-btn" onclick="keypadPress('#')">#</button>
+                        </div>
+
+                        <button class="btn btn-gold btn-full-width" onclick="nextWsScreen('screen-ws-email')">YES, CALL
+                            ME!</button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- WINDOW SHOPPER: EMAIL -->
+            <section id="screen-ws-email" class="screen">
+                <div class="ws-container">
+                    <div class="ws-yellow-header">
+                        <div class="ws-day-dropdown white-text">
+                            <span>DAY 1</span>
+                            <svg width="10" height="10" viewBox="0 0 24 24" fill="currentColor" stroke="none">
+                                <path d="M7 10l5 5 5-5z" />
+                            </svg>
+                        </div>
+                        <h2 class="ws-yellow-title">STAY<br>UPDATED!</h2>
+                        <p class="ws-yellow-subtitle">Discover the latest agricultural<br>news and technologies.</p>
+                        <p class="ws-yellow-subtitle-small">Kindly verify that the information entered is correct.</p>
+
+                        <input type="email" placeholder="juandcruz@gmail.com" class="ws-input-overlay">
+                    </div>
+
+                    <div class="ws-white-body centered-body">
+                        <button class="btn btn-gold btn-full-width" onclick="nextWsScreen('screen-ws-survey')">KEEP ME
+                            UPDATED!</button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- WINDOW SHOPPER: SURVEY -->
+            <section id="screen-ws-survey" class="screen">
+                <div class="ws-container">
+                    <div class="ws-yellow-header large-header">
+                        <div class="ws-day-dropdown white-text">
+                            <span>DAY 1</span>
+                            <svg width="10" height="10" viewBox="0 0 24 24" fill="currentColor" stroke="none">
+                                <path d="M7 10l5 5 5-5z" />
+                            </svg>
+                        </div>
+                        <h2 class="ws-yellow-title-small"><span class="required-star-red">*</span>What would you love
+                            to<br>learn more about from<br>us?</h2>
+                        <p class="ws-yellow-subtitle-left">Select all that apply</p>
+
+                        <div class="ws-custom-select">
+                            <span>Select Company</span>
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#666" stroke-width="2"
+                                stroke-linecap="round" stroke-linejoin="round">
+                                <polyline points="6 9 12 15 18 9"></polyline>
+                            </svg>
+                        </div>
+                    </div>
+
+                    <div class="ws-white-body">
+                        <div class="ws-rating-section">
+                            <label class="ws-label-small"><span class="required-star-red">*</span>How familiar are you
+                                with digital tools for agriculture?</label>
+
+                            <div class="rating-scale">
+                                <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span>
+                            </div>
+                            <div class="rating-bar">
+                                <div class="rating-fill" style="width: 40%;"></div>
+                                <div class="rating-knob" style="left: 40%">2</div>
+                            </div>
+                            <div class="rating-labels">
+                                <span>Not familiar at all</span>
+                                <span>Very familiar</span>
+                            </div>
+                        </div>
+
+                        <button class="btn btn-gold btn-full-width"
+                            onclick="nextWsScreen('screen-ws-final')">NEXT</button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- WINDOW SHOPPER: FINAL -->
+            <section id="screen-ws-final" class="screen">
+                <div class="ws-container">
+                    <div class="ws-yellow-header medium-header">
+                        <div class="ws-day-dropdown white-text">
+                            <span>DAY 1</span>
+                            <svg width="10" height="10" viewBox="0 0 24 24" fill="currentColor" stroke="none">
+                                <path d="M7 10l5 5 5-5z" />
+                            </svg>
+                        </div>
+                        <h2 class="ws-yellow-title">GREAT!</h2>
+                        <p class="ws-yellow-subtitle-left"><span class="required-star-red">*</span>Just one last
+                            thing—what company<br>or organization are you with?</p>
+                        <p class="ws-yellow-subtitle-small-left">Kindly verify that the information entered is correct.
+                        </p>
+
+                        <input type="text" placeholder="ABC Corporation" class="ws-input-overlay">
+                    </div>
+
+                    <div class="ws-white-body centered-body">
+                        <div class="ws-privacy-text">
+                            <input type="checkbox" checked>
+                            <p><strong>Data Privacy Consent</strong><br>By clicking this box, you agree to the
+                                collection and use of your information in accordance with data privacy laws. Your
+                                responses are confidential and will not be shared without your consent.</p>
+                        </div>
+                        <button class="btn btn-gold btn-full-width" onclick="showScreen('screen-home')">SUBMIT</button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ADMIN LOGIN SCREEN (MODAL) -->
+            <section id="screen-admin-login" class="screen">
+                <div class="modal-overlay">
+                    <div class="modal-box portal-modal">
+                        <button class="close-btn-portal" onclick="showScreen('screen-home')">×</button>
+                        <div class="portal-header-content">
+                            <h2 class="portal-title">BRANDSYNC<br>ADMIN PORTAL</h2>
+                            <p class="portal-description">
+                                Admin Access provides centralized control where all event-generated leads are stored,
+                                reviewed, and managed. Use this section to view, track, and organize leads from every
+                                event in one secure location.
+                            </p>
+                        </div>
+
+                        <div class="portal-form">
+                            <div class="portal-input-wrapper">
+                                <input type="text" placeholder="USERNAME" class="portal-input">
+                            </div>
+                            <div class="portal-input-wrapper">
+                                <input type="password" placeholder="PASSWORD" class="portal-input">
+                            </div>
+                            <button class="btn btn-portal-open"
+                                onclick="showScreen('screen-admin-events')">OPEN</button>
+                        </div>
+
+                        <footer class="portal-footer">
+                            Powered by: Marketing & CSE Department © 2026 BrandSync
+                        </footer>
+                    </div>
+                </div>
+            </section>
+            <!-- ADMIN EVENTS SELECT (MODAL) -->
+            <section id="screen-admin-events" class="screen">
+                <div class="modal-overlay">
+                    <div class="modal-box portal-modal">
+                        <button class="close-btn-portal" onclick="showScreen('screen-admin-login')">×</button>
+                        <div class="portal-header-content">
+                            <h2 class="portal-title">BRANDSYNC<br>ADMIN PORTAL</h2>
+                            <p class="portal-description">
+                                Admin Access provides centralized control where all event-generated leads are stored,
+                                reviewed, and managed. Use this section to view, track, and organize leads from every
+                                event in one secure location.
+                            </p>
+                        </div>
+
+                        <div class="portal-form">
+                            <div class="portal-event-wrapper">
+                                <span class="portal-label">EVENT:</span>
+                                <div class="portal-dropdown-container">
+                                    <select class="portal-select">
+                                        <option value="" disabled selected></option>
+                                        <option value="mangocon">MangoCon</option>
+                                        <option value="coconutshell">CoconutShell</option>
+                                    </select>
+                                    <div class="portal-dropdown-arrow">
+                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#CC99A2"
+                                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                            <polyline points="6 9 12 15 18 9"></polyline>
+                                        </svg>
+                                    </div>
+                                </div>
+                            </div>
+                            <button class="btn btn-portal-open-muted"
+                                onclick="showScreen('screen-leads-list')">OPEN</button>
+                        </div>
+
+                        <footer class="portal-footer">
+                            Powered by: Marketing & CSE Department © 2026 BrandSync
+                        </footer>
+                    </div>
+                </div>
+            </section>
+            <!-- LEADS LIST SCREEN -->
+            <section id="screen-leads-list" class="screen">
+                <div class="list-page-container">
+                    <div class="list-header-maroon">
+                        <h3 class="list-title">LIST OF LEADS</h3>
+                        <div class="list-header-actions">
+                            <div class="header-dropdown">Navigation ▼</div>
+                            <div class="header-dropdown">Filter ▼</div>
+                            <div class="header-dropdown">Column ▼</div>
+                            <button class="btn-manual-upload">UPLOAD MANUAL</button>
+                        </div>
+                    </div>
+
+                    <div class="list-event-bar">
+                        <span class="event-label">EVENT:</span>
+                        <div class="event-mini-dropdown">
+                            <select class="portal-select">
+                                <option value="" disabled selected></option>
+                                <option value="mangocon">MangoCon</option>
+                                <option value="coconutshell">CoconutShell</option>
+                            </select>
+                            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                                <polyline points="6 9 12 15 18 9"></polyline>
+                            </svg>
+                        </div>
+                    </div>
+
+                    <div class="list-table-wrapper">
+                        <table class="leads-table">
+                            <thead>
+                                <tr>
+                                    <th><input type="checkbox"> Select all</th>
+                                    <th>No.</th>
+                                    <th>Names</th>
+                                    <th>Number</th>
+                                    <th>Email</th>
+                                    <th>Event</th>
+                                    <th>Position</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><input type="checkbox"></td>
+                                    <td>1</td>
+                                    <td>John D. Doe</td>
+                                    <td>0912-345-6789</td>
+                                    <td>jdoe@gmail.com</td>
+                                    <td>CEU</td>
+                                    <td>Junior Designer</td>
+                                </tr>
+                                <tr>
+                                    <td><input type="checkbox"></td>
+                                    <td>2</td>
+                                    <td>Jane S. Doe</td>
+                                    <td>0912-345-6789</td>
+                                    <td>jdoe@gmail.com</td>
+                                    <td>CEU</td>
+                                    <td>Manager</td>
+                                </tr>
+                                <!-- More rows as needed -->
+                                <tr class="empty-row">
+                                    <td colspan="7"></td>
+                                </tr>
+                                <tr class="empty-row">
+                                    <td colspan="7"></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="list-footer-bar">
+                        <button class="footer-btn footer-btn-note">NOTE</button>
+                        <div class="pagination-controls">
+                            <button class="footer-btn footer-btn-nav"
+                                onclick="showScreen('screen-admin-events')">PREVIOUS</button>
+                            <span class="page-number">1</span>
+                            <button class="footer-btn footer-btn-nav">NEXT</button>
+                        </div>
+                        <button class="footer-btn footer-btn-home" onclick="showScreen('screen-home')">HOME</button>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>

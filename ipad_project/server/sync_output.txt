@@ -1,0 +1,20 @@
+Connected to ipad_db
+
+--- SYNCHRONIZING LEGACY DATA ---
+Success: Sync name (undefined rows)
+Success: Sync phone (undefined rows)
+Success: Sync role (undefined rows)
+Success: Sync status (undefined rows)
+Success: Backfill event_id (undefined rows)
+
+--- VERIFICATION ---
+Success: Final Check (5 rows)
+┌─────────┬────┬─────────────────┬──────────────┬──────────┬────────────────────┬─────────────────┐
+│ (index) │ id │ name            │ event        │ event_id │ linked_salesperson │ stored_assigned │
+├─────────┼────┼─────────────────┼──────────────┼──────────┼────────────────────┼─────────────────┤
+│ 0       │ 5  │ 'Rex Pinsoy'    │ 'MangoCon'   │ 3        │ 'James'            │ null            │
+│ 1       │ 4  │ 'Test visitor'  │ 'test event' │ 5        │ 'Test'             │ null            │
+│ 2       │ 3  │ 'Abdul Palwa'   │ 'CoCoFarm'   │ 4        │ 'Cybel'            │ null            │
+│ 3       │ 2  │ 'Mark Salongga' │ 'MangoCon'   │ 3        │ 'James'            │ null            │
+│ 4       │ 1  │ 'James Ivan '   │ 'AgriLink'   │ 1        │ 'Jhon'             │ null            │
+└─────────┴────┴─────────────────┴──────────────┴──────────┴────────────────────┴─────────────────┘
